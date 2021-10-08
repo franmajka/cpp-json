@@ -1,0 +1,34 @@
+[
+  {
+    "class": "SupermarketField",
+    "properties": {
+      "id": 1,
+      "name": "Silpo",
+      "cost": 1100
+    }
+  },
+  {
+    "class": "SupermarketField",
+    "properties": {
+      "id": 2,
+      "name": "ATB",
+      "cost": 1000
+    }
+  },
+  {
+    "class": "ElectronicsField",
+    "properties": {
+      "id": 3,
+      "name": "Nokia",
+      "cost": 4000
+    }
+  },
+  {
+    "class": "ElectronicsField",
+    "properties": {
+      "id": 4,
+      "name": "Apple",
+      "cost": 3500
+    }
+  }
+]
