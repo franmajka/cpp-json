@@ -10,6 +10,12 @@
 #include "AbstractField.hpp"
 #include "StringToClassesMap.hpp"
 
+/**
+ * Class that deserializes classes derived from a same parent.
+ *
+ * @tparam Class  Parent class
+ * @tparam Map    Map class that connects json name with cpp class, defaults to std::unordered_map
+*/
 template <class Class, template<typename, class> class Map = std::unordered_map>
 class JsonDeserializer {
 public:

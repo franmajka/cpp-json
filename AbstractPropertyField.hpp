@@ -14,13 +14,13 @@
 // должны быть у поля собственности
 class AbstractPropertyField : public AbstractField {
 public:
-  void action(std::unique_ptr<AbstractPlayer>& player) const {
+  SET_SERIALIZABLE
+
+  virtual void action(std::unique_ptr<AbstractPlayer>& player) const {
     std::cout << "Player " << player->getName() << " steps on "
       << m_name << " field and has to pay $" << m_cost << std::endl;
   }
-  
-  template <class Class>
-  friend constexpr field_ptr createInstance(json);
+
 protected:
   std::unique_ptr<AbstractPlayer> m_owner = nullptr;
   unsigned m_cost;

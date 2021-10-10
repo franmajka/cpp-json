@@ -4,7 +4,8 @@
     "properties": {
       "id": 1,
       "name": "Silpo",
-      "cost": 1100
+      "cost": 1100,
+      "isBusiness": false
     }
   },
   {
@@ -12,7 +13,8 @@
     "properties": {
       "id": 2,
       "name": "ATB",
-      "cost": 1000
+      "cost": 1000,
+      "isBusiness": true
     }
   },
   {

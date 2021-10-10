@@ -36,3 +36,7 @@ constexpr field_ptr createInstance(json jProperties) {
 
   return ptr;
 }
+
+#define SET_SERIALIZABLE \
+  template <class Class> \
+  friend constexpr field_ptr createInstance(json);
