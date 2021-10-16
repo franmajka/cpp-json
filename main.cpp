@@ -8,21 +8,9 @@
 
 #include "Player.hpp"
 
-#include "AbstractField.hpp"
-#include "SupermarketField.hpp"
-#include "ElectronicsField.hpp"
-
-template <class FieldDerived>
-AbstractField::ptr createInstance() {
-  return std::make_unique<FieldDerived>();
-}
+#include "FieldFactory.hpp"
 
 int main() {
-  std::unordered_map<std::string, AbstractField::ptr (*)()> map = {
-    {"SupermarketField", &createInstance<SupermarketField>},
-    {"ElectronicsField", &createInstance<ElectronicsField>},
-  };
-
   std::vector<AbstractField::ptr> vec;
 
   std::ifstream fin("fields.config.json");
@@ -30,11 +18,8 @@ int main() {
   fin.close();
 
   for (const json& fieldData : data) {
-    AbstractField::ptr tmp = map[fieldData.at("class")]();
-    tmp->deserialize(fieldData.at("properties"));
-    vec.push_back(std::move(tmp));
+    vec.push_back(FieldFactory::getInstance().create(fieldData));
   }
-
 
   std::unique_ptr<AbstractPlayer> player = std::make_unique<Player>("Olesya");
 
